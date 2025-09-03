@@ -75,6 +75,7 @@ import { test, expect } from "@playwright/test";
 //   })
 // });
 import { LoginPage } from "../pages/LoginPage";
+
 test.describe("Test function login", () => {
   //khai báo biến loginPage (global)
   let loginPage: LoginPage;

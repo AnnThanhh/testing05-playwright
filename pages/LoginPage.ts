@@ -1,5 +1,5 @@
 import { Page, Locator } from "@playwright/test";
-
+import { BASE_URL } from "../utils/utils";
 export class LoginPage {
   //thuộc tính LoginPage
   //readonly: chỉ đọc các giá trị của thuộc tính và không thể thay đổi giá trị của thuộc tính
@@ -22,9 +22,7 @@ export class LoginPage {
 
   //phương thức LoginPage
   async goToPage() {
-    await this.page.goto(
-      "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-    );
+    await this.page.goto(BASE_URL || "");
   }
 
   async login(username: string, password: string) {
