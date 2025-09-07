@@ -1,5 +1,6 @@
 import { Page, Locator } from "@playwright/test";
-import { BASE_URL } from "../utils/utils";
+import { BASE_URL, USERNAME, PASSWORD } from "../utils/utils";
+
 export class LoginPage {
   //thuộc tính LoginPage
   //readonly: chỉ đọc các giá trị của thuộc tính và không thể thay đổi giá trị của thuộc tính
@@ -24,8 +25,8 @@ export class LoginPage {
   async goToPage() {
     await this.page.goto(BASE_URL || "");
   }
-
-  async login(username: string, password: string) {
+  //default parameter: là tham số mặc định của hàm, nếu mà người dùng k truyền dữ liệu vào tham số thì hàm sẽ sử dụng giá trị mặc định
+  async login(username: string = USERNAME, password: string = PASSWORD) {
     //nhập username
     await this.username.fill(username);
     //nhập password

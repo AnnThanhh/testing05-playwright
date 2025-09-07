@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator, Page, expect } from "@playwright/test";
 
 export class AdminPage {
   //thuộc tính
@@ -24,8 +24,10 @@ export class AdminPage {
 
   //phương thức
   //kiểm tra xem có đang ở đúng trang admin hay không
-  async isAtAdminPage(): Promise<boolean> {
-    return await this.adminPageTitle.isVisible();
+  //isVisible: sẽ không có cơ chế wait -> nó sẽ check ngay lập tức tại thời điểm gọi hàm
+  //assert trong playwright: kiểm tra kết quả mong đợi khi chạy test, lúc nào cũng sẽ có cơ chế wait -> nó sẽ check sau khi có kết quả trả về -> expect(locator).phương_thức()
+  async isAtAdminPage() {
+    await expect(this.adminPageTitle).toBeVisible();
   }
 
   //nhập employeename vào input và search

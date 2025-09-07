@@ -28,7 +28,7 @@ test.describe("Test function admin", () => {
   //tobeFalsy: kiểm tra xem giá trị trả về có phải là false hay không
   test("isAtAdminPage", async () => {
     await adminPage.isAtAdminPage();
-    expect(adminPage.isAtAdminPage()).toBeTruthy();
+    //khi so sánh với tobetruthy -> nó sẽ luôn true 
     //expect(await adminPage.isAtAdminPage()).toBeTruthy();
   });
 

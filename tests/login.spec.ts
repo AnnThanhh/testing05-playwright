@@ -1,3 +1,4 @@
+import { BASE_URL } from './../utils/utils';
 import { test, expect } from "@playwright/test";
 
 // const BASE_URL =
@@ -75,7 +76,6 @@ import { test, expect } from "@playwright/test";
 //   })
 // });
 import { LoginPage } from "../pages/LoginPage";
-
 test.describe("Test function login", () => {
   //khai báo biến loginPage (global)
   let loginPage: LoginPage;
@@ -92,7 +92,8 @@ test.describe("Test function login", () => {
   //test case 1: login thành công
   test("Login thành công", async ({ page }) => {
     //3. nhập username và password
-    await loginPage.login("Admin", "admin123");
+    await loginPage.login(); // -> login thành công
+    // await loginPage.login("Admin", "admin12345") -> login thất bại
 
     //4. verify login thành công
     await expect(page.locator("h6")).toHaveText("Dashboard");
